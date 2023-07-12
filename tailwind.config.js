@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        background: 'linear-gradient(180deg, #1D1E28 0.06%, #261C2D 94.83%, #261A2D 100%)'
+      }
+    },
     colors: {
       grayishblue: 'hsl(237, 18%, 59%)',
       softRed: 'hsl(345, 95%, 68%)',
