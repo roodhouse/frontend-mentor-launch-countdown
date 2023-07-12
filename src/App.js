@@ -11,7 +11,7 @@ function App() {
         <div id='bodyWrapper' className='mb-[54px]'>
           <Body />
         </div>
-        <div id='countdownWrapper'>
+        <div id='countdownWrapper' className='mb-[163px]'>
           <Countdown />
         </div>
         <div id='socialWrapper'>
