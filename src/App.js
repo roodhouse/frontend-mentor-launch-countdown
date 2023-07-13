@@ -3,6 +3,7 @@ import './App.css';
 import Body from './components/Body'
 import Countdown from './components/Countdown'
 import Social from './components/Social'
+import 'animate.css';
 
 // add animation when the digits change
 
@@ -15,6 +16,12 @@ function App() {
 
 
   useEffect(() => {
+    // setSeconds(Date.now())
+    const today = new Date(Date.now())
+    setSeconds(today.getSeconds())
+    setMinutes(today.getMinutes())
+    setHours(today.getHours())
+    setDays(14)
     addDays(Date.now(), 14)
   },[])
 
@@ -33,14 +40,17 @@ function App() {
         console.log('single')
         theSeconds = 59
         theMinutes--
+        document.getElementById('minText').classList.add('animate__flipInX')
         if ( theMinutes < 0 ) {
           console.log('double')
           theMinutes = 59
           theHours--
+          document.getElementById('hourText').classList.add('animate__flipInX')
           if ( theHours < 0) {
             console.log('triple')
             theHours = 23
             theDays--
+            document.getElementById('dayText').classList.add('animate__flipInX')
             if ( theDays < 0 ) {
               console.log('homerun')
               theDays = 0
@@ -58,13 +68,17 @@ function App() {
         setMinutes(theMinutes)
         setSeconds(theSeconds)
       }  else {
+        console.log('here')
+        document.getElementById('minText').classList.remove('animate__flipInX')
+        document.getElementById('hourText').classList.remove('animate__flipInX')
+        document.getElementById('dayText').classList.remove('animate__flipInX')
         setSeconds(theSeconds)
         setMinutes(theMinutes)
         setHours(theHours)
         setDays(theDays)
       }
+      
     }, 1000)
-    
   }
   
   return (
