@@ -68,7 +68,6 @@ function App() {
         setMinutes(theMinutes)
         setSeconds(theSeconds)
       }  else {
-        console.log('here')
         document.getElementById('minText').classList.remove('animate__flipInX')
         document.getElementById('hourText').classList.remove('animate__flipInX')
         document.getElementById('dayText').classList.remove('animate__flipInX')

@@ -1,93 +1,127 @@
-# Frontend Mentor - Launch countdown timer
+# Frontend Mentor - Launch countdown timer solution
 
-![Design preview for the Launch countdown timer coding challenge](./design/desktop-preview.jpg)
+This is my solution to the [Launch countdown timer challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/launch-countdown-timer-N0XkGfyz-). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+- [Author](#author)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
 
-**To do this challenge, you need a good understanding of HTML, CSS and JavaScript.**
+## Overview
 
-## The challenge
+### The challenge
 
-Your challenge is to build out this countdown timer and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to:
+Users should be able to:
 
 - See hover states for all interactive elements on the page
 - See a live countdown timer that ticks down every second (start the count at 14 days)
 - **Bonus**: When a number changes, make the card flip from the middle
 
-Want some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the **#help** channel.
+### Screenshot
 
-## Where to find everything
+#### Mobile
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+![](/src/images/mb.png)
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+#### Desktop
 
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+![](/src/images/dt.png)
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+### Links
 
-## Building your project
+- Solution URL: [solution](https://github.com/roodhouse/frontend-mentor-launch-countdown)
+- Live Site URL: [live site](https://countdown.rugh.us)
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+## My process
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+### Built with
 
-## Deploying your project
+- HTML5, CSS
+- Mobile-first workflow
+- React
+- Tailwind
 
-As mentioned above, there are many ways to host your project for free. Our recommend hosts are:
+### What I learned
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+This project was a nice challenge. It allowed me to continue to get used to passing props in React, troubleshoot some tricky designs and practice some logic javascript. My code was quite complicated in several places at first. At some point I realized my logic was creating bugs and from there was able to make a much more practical countdown function. 
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+```js
+// add 14 days to today on load
+  function addDays(date, days) {
+    let result = new Date(date);
+    result.setDate(result.getDate() + days);
+    let theSeconds = result.getSeconds()
+    let theMinutes = result.getMinutes()
+    let theHours = result.getHours()
+    let theDays = days
 
-## Create a custom `README.md`
+    let theSecondsCount = setInterval(function() {
+      theSeconds = theSeconds -1
+       if( theSeconds < 0 ) {
+        console.log('single')
+        theSeconds = 59
+        theMinutes--
+        document.getElementById('minText').classList.add('animate__flipInX')
+        if ( theMinutes < 0 ) {
+          console.log('double')
+          theMinutes = 59
+          theHours--
+          document.getElementById('hourText').classList.add('animate__flipInX')
+          if ( theHours < 0) {
+            console.log('triple')
+            theHours = 23
+            theDays--
+            document.getElementById('dayText').classList.add('animate__flipInX')
+            if ( theDays < 0 ) {
+              console.log('homerun')
+              theDays = 0
+              theHours = 0
+              theMinutes = 0
+              theSeconds = 0
+              clearInterval(theSecondsCount)
+            }
+          }
+          setDays(theDays)
+          setMinutes(theMinutes)
+          setHours(theHours)
+        }
+        
+        setMinutes(theMinutes)
+        setSeconds(theSeconds)
+      }  else {
+        document.getElementById('minText').classList.remove('animate__flipInX')
+        document.getElementById('hourText').classList.remove('animate__flipInX')
+        document.getElementById('dayText').classList.remove('animate__flipInX')
+        setSeconds(theSeconds)
+        setMinutes(theMinutes)
+        setHours(theHours)
+        setDays(theDays)
+      }
+      
+    }, 1000)
+  }
+```
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+At first I was trying to recreate the card design pixel for pixel. It was a chore. I just so happened to right click the card group in figma and saw an option to copy the group as an svg.
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+![](/src/images/figma.png)
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+This is an excellent feature from figma. I took the svg that was generated and manipulated it until I was statisfied. I ended up using it as the background image for the number.
 
-## Submitting your solution
+```js
+<div id="daySvgContainer" className='flex justify-center items-center mb-[9px] bg-[url("/src/images/flip-sm.svg")] lg:bg-[url("/src/images/flip-lg.svg")] lg:h-full lg:mb-4'>
+```
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+## Author
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
-
-## Sharing your solution
-
-There are multiple places you can share your solution:
-
-1. Share your solution page in the **#finished-projects** channel of the [Slack community](https://www.frontendmentor.io/slack). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
-
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
-
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+- Website - [my site](https://rugh.us)
+- Frontend Mentor - [@roodhouse](https://www.frontendmentor.io/profile/roodhouse)
+- LinkedIn - [John Rugh](https://www.linkedin.com/in/john-m-rugh/)
