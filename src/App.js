@@ -5,7 +5,6 @@ import Countdown from './components/Countdown'
 import Social from './components/Social'
 
 // add animation when the digits change
-// fix the padding around the numbers so they all fit the same
 
 
 function App() {
@@ -30,35 +29,32 @@ function App() {
 
     let theSecondsCount = setInterval(function() {
       theSeconds = theSeconds -1
-      if ( theSeconds < 0 && theMinutes < 0 && theHours < 0 && theDays < 0) {
-        console.log('homerun')
-        clearInterval(theSecondsCount)
-      }
-      else if ( theSeconds < 0 && theMinutes < 0 && theHours < 0 ) {
-        console.log('triple')
-        theSeconds = 59
-        theMinutes = 59
-        theHours = 23
-        theDays = theDays - 1
-        console.log(`the days after a triple: ${typeof theDays}`)
-        setMinutes(theMinutes)
-        setSeconds(theSeconds)
-        setHours(theHours)
-        setDays(theDays)
-      }
-      else if ( theSeconds < 0 && theMinutes < 0 ) {
-        console.log('double')
-        theSeconds = 59
-        theMinutes = 59
-        theHours = theHours -1
-        setMinutes(theMinutes)
-        setSeconds(theSeconds)
-        setHours(theHours)
-    }
-      else if( theSeconds < 0 ) {
+       if( theSeconds < 0 ) {
         console.log('single')
         theSeconds = 59
-        theMinutes = theMinutes -1
+        theMinutes--
+        if ( theMinutes < 0 ) {
+          console.log('double')
+          theMinutes = 59
+          theHours--
+          if ( theHours < 0) {
+            console.log('triple')
+            theHours = 23
+            theDays--
+            if ( theDays < 0 ) {
+              console.log('homerun')
+              theDays = 0
+              theHours = 0
+              theMinutes = 0
+              theSeconds = 0
+              clearInterval(theSecondsCount)
+            }
+          }
+          setDays(theDays)
+          setMinutes(theMinutes)
+          setHours(theHours)
+        }
+        
         setMinutes(theMinutes)
         setSeconds(theSeconds)
       }  else {
@@ -71,7 +67,6 @@ function App() {
     
   }
   
-
   return (
     <div className="App">
      <div id='mainWrapper' className='bg-background h-screen'>
