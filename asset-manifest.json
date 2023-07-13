@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/frontend-mentor-launch-countdown/static/css/main.49c7c36b.css",
+    "main.js": "/frontend-mentor-launch-countdown/static/js/main.0cb7d5d6.js",
+    "static/media/bg-stars.svg": "/frontend-mentor-launch-countdown/static/media/bg-stars.166881a1c03d6b1239f5.svg",
+    "static/media/flip-lg.svg": "/frontend-mentor-launch-countdown/static/media/flip-lg.2c7df210f6b102401f23.svg",
+    "static/media/icon-instagram-hover.svg": "/frontend-mentor-launch-countdown/static/media/icon-instagram-hover.47b797844d166033c8db.svg",
+    "static/media/icon-instagram.svg": "/frontend-mentor-launch-countdown/static/media/icon-instagram.b94ff26a97e94b0abe8b.svg",
+    "static/media/flip-sm.svg": "/frontend-mentor-launch-countdown/static/media/flip-sm.4e0d476a405a25213b87.svg",
+    "static/media/icon-pinterest-hover.svg": "/frontend-mentor-launch-countdown/static/media/icon-pinterest-hover.967158e0994a33980303.svg",
+    "static/media/icon-pinterest.svg": "/frontend-mentor-launch-countdown/static/media/icon-pinterest.ea0db8e7cb2520eeee51.svg",
+    "index.html": "/frontend-mentor-launch-countdown/index.html",
+    "static/media/bg-hills.svg": "/frontend-mentor-launch-countdown/static/media/bg-hills.bd78a5b83fda847ed942.svg",
+    "static/media/icon-facebook-hover.svg": "/frontend-mentor-launch-countdown/static/media/icon-facebook-hover.6d5fc719719dec31c6b6.svg",
+    "static/media/icon-facebook.svg": "/frontend-mentor-launch-countdown/static/media/icon-facebook.a9208377508aef178a3d.svg",
+    "main.49c7c36b.css.map": "/frontend-mentor-launch-countdown/static/css/main.49c7c36b.css.map",
+    "main.0cb7d5d6.js.map": "/frontend-mentor-launch-countdown/static/js/main.0cb7d5d6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.49c7c36b.css",
+    "static/js/main.0cb7d5d6.js"
+  ]
+}
