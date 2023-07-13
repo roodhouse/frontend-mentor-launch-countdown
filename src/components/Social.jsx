@@ -1,20 +1,16 @@
 import React from 'react'
-import Facebook from '../images/icon-facebook.svg'
-import Pinterest from '../images/icon-pinterest.svg'
-import Instagram from '../images/icon-instagram.svg'
 
 function Social() {
   return (
     <>
-      <div id="socialContainer" className='bg-[url("/src/images/bg-hills.svg")] h-[168px] flex pl-[119px] pt-[96px] pb-12'>
-        <div id="facebookIcon" className='mr-[34px]'>
-          <img src={Facebook} alt="Facebook" />
-        </div>
-        <div id="pinterestIcon" className='mr-[34px]'>
-          <img src={Pinterest} alt="Pinterest" />
-        </div>
-        <div id="instagramIcon">
-          <img src={Instagram} alt="Instagram" className=''/>
+      <div id="socialContainer" className='bg-[url("/src/images/bg-hills.svg")] h-[168px] flex justify-center pl-0 pt-[96px] pb-12'>
+        <div id="moreContain" className='flex'>
+          <div id="facebookIcon" className='w-6 h-6 mr-[34px] cursor-pointer bg-[url("/src/images/icon-facebook.svg")] hover:bg-[url("/src/images/icon-facebook-hover.svg")]'>
+          </div>
+          <div id="pinterestIcon" className='w-6 h-6 mr-[34px] cursor-pointer bg-[url("/src/images/icon-pinterest.svg")] hover:bg-[url("/src/images/icon-pinterest-hover.svg")]'>  
+          </div>
+          <div id="instagramIcon" className='w-6 h-6 cursor-pointer bg-[url("/src/images/icon-instagram.svg")] hover:bg-[url("/src/images/icon-instagram-hover.svg")]'>  
+          </div>
         </div>
       </div>
     </>

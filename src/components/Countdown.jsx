@@ -7,14 +7,14 @@ import Second from './countdown/Second'
 function Countdown({ seconds, minutes, hours, days }) {
   return (
     <>
-      <div id="countdownContainer" className='flex justify-between'>
-        <div id="dayWrapper">
+      <div id="countdownContainer" className='flex justify-between lg:justify-center'>
+        <div id="dayWrapper" className='lg:mr-8'>
           <Day days={days} />
         </div>
-        <div id="hourWrapper">
+        <div id="hourWrapper" className='lg:mr-8'>
           <Hour hours={hours} />
         </div>
-        <div id="minWrapper">
+        <div id="minWrapper" className='lg:mr-8'>
           <Min minutes={minutes} />
         </div>
         <div id="secondsWrapper">
