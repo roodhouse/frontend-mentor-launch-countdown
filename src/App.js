@@ -3,6 +3,7 @@ import './App.css';
 import Body from './components/Body'
 import Countdown from './components/Countdown'
 import Social from './components/Social'
+import 'animate.css';
 
 // add animation when the digits change
 
